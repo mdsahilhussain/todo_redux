@@ -1,0 +1,30 @@
+@import url("../../App.css");
+
+.container {
+  padding: 3rem;
+}
+.container,
+.todo___container {
+  display: flex;
+  align-items: flex-start;
+}
+
+section {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background-color: var(--cardColor);
+  height: 100%;
+  width: 100%;
+}
+
+.dasboard {
+  width: 70%;
+}
+
+section.allList {
+  width: 30%;
+}
+
+section.input {
+  background-color: transparent !important;
+}

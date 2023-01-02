@@ -1,0 +1,31 @@
+@import url("../../App.css");
+
+ul {
+  margin-top: 1rem;
+}
+.todo___card {
+  border: 1px solid white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.todo___card:last-child {
+  margin-bottom: 0rem;
+}
+
+.todo___card--icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.todo___card--icon li {
+  margin-right: 1rem;
+}
+
+.todo___card--icon li:last-child {
+  margin-right: 0rem;
+}
