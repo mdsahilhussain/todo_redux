@@ -9,6 +9,10 @@
   align-items: flex-start;
 }
 
+.todo___container > section {
+  margin-right: 1rem;
+}
+
 section {
   padding: 1.5rem;
   border-radius: 20px;
@@ -27,4 +31,55 @@ section.allList {
 
 section.input {
   background-color: transparent !important;
+}
+
+.moble___navelink {
+  display: none;
+  margin-bottom: 1rem;
+}
+
+.moble___navelink--list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 0rem;
+}
+
+.moble___navelink--list li {
+  margin-right: 1rem;
+}
+
+.moble___navelink--list li:last-child {
+  margin-right: 0rem;
+}
+.desktop___todo {
+  display: block;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+  .dasboard {
+    width: 60%;
+  }
+
+  section.allList {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .moble___navelink {
+    display: block;
+  }
+  .desktop___todo,
+  section.allList {
+    display: none;
+  }
+
+  .dasboard {
+    width: 100%;
+  }
 }

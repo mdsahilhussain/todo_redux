@@ -16,7 +16,7 @@ function TodoList(props) {
   return (
     <div>
       <h4>{props.name}</h4>
-      <div>
+      <div className="todo__list">
         <ul>
           {props.list?.map((item, index) => (
             <li key={index} className="todo___card">

@@ -3,6 +3,9 @@
 ul {
   margin-top: 1rem;
 }
+.todo__list {
+  width: 100%;
+}
 .todo___card {
   border: 1px solid white;
   padding: 0.5rem 1.5rem;

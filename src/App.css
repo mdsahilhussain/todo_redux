@@ -74,3 +74,40 @@ a {
 a:hover {
   color: unset;
 }
+
+@media only screen and (max-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+  hr {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 18px;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
