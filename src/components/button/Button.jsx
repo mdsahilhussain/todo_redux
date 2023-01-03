@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from 'react'
 import "./button.css";
 import {
   MdDone,
@@ -7,27 +7,26 @@ import {
   MdDelete,
   MdAdd,
 } from "react-icons/md";
-
-function Button(props) {
-  return (
-    <div>
-      <button className="btn" style={{ color: props.color }}>
-        {props.name === "MdAdd" ? (
+export default class Button extends Component  {
+  render() {
+    return (
+      <div>
+      <button className="btn" style={{ color: this.props.color }}>
+        {this.props.name === "MdAdd" ? (
           <MdAdd />
-        ) : props.name === "MdDone" ? (
+        ) : this.props.name === "MdDone" ? (
           <MdDone />
-        ) : props.name === "MdDelete" ? (
+        ) : this.props.name === "MdDelete" ? (
           <MdDelete />
-        ) : props.name === "MdCreate" ? (
+        ) : this.props.name === "MdCreate" ? (
           <MdCreate />
-        ) : props.name === "MdCheckBoxOutlineBlank" ? (
+        ) : this.props.name === "MdCheckBoxOutlineBlank" ? (
           <MdCheckBoxOutlineBlank />
         ) : (
-          props.name
+          this.props.name
         )}
       </button>
     </div>
-  );
+    )
+  }
 }
-
-export default Button;
