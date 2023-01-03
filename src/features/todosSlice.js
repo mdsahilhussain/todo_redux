@@ -23,6 +23,19 @@ export const todosSlice = createSlice({
       const activeTodos = state.todos.filter((todo) => !todo.completed);
       state.activeTodos = activeTodos;
     },
+
+    updateTodos: (state, action) => {
+      state.todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          return {
+            ...todo,
+            descr: action.payload.descr,
+          };
+        }
+        return todo;
+      });
+    },
+
     removeTodo: (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
       if (
@@ -44,7 +57,8 @@ export const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, completedTodo, removeTodo } = todosSlice.actions;
+export const { addTodo, completedTodo, removeTodo, updateTodos } =
+  todosSlice.actions;
 export const selectTodos = (state) => state.todos.todos;
 export const selectCompletedTodos = (state) => state.todos.completedTodos;
 export const selectActiveTodos = (state) => state.todos.activeTodos;

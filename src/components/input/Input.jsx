@@ -12,11 +12,14 @@ function Input() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputRef.current.value.trim()) {
+      var date = new Date();
+      var current_time = date.getHours() + ":" + date.getMinutes();
       dispatch(
         addTodo({
           id: Math.random() * 1000,
           // title: inputSecondRef.current.value,
           descr: inputRef.current.value,
+          time: current_time,
           completed: false,
         })
       );

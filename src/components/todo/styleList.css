@@ -10,10 +10,23 @@ ul {
   border: 1px solid white;
   padding: 0.5rem 1.5rem;
   border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.popCard{
+  position: absolute;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo___card--bottom {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 1rem;
 }
 .todo___card:last-child {
   margin-bottom: 0rem;
@@ -31,4 +44,48 @@ ul {
 
 .todo___card--icon li:last-child {
   margin-right: 0rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  ul {
+    margin-top: 1rem;
+  }
+  .todo__list {
+    width: 100%;
+  }
+  .todo___card {
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+
+  .todo___card--icon li {
+    margin-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .moble___navelink {
+    display: block;
+  }
+  .desktop___todo,
+  section.allList {
+    display: none;
+  }
+
+  .dasboard {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .todo___card {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  .todo___card--icon {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
 }

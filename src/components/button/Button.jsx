@@ -22,7 +22,9 @@ function Button(props) {
           <MdCreate />
         ) : props.name === "MdCheckBoxOutlineBlank" ? (
           <MdCheckBoxOutlineBlank />
-        ) : undefined}
+        ) : (
+          props.name
+        )}
       </button>
     </div>
   );
