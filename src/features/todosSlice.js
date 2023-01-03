@@ -23,16 +23,12 @@ export const todosSlice = createSlice({
       const activeTodos = state.todos.filter((todo) => !todo.completed);
       state.activeTodos = activeTodos;
     },
-
+//Todo =================================
     updateTodos: (state, action) => {
-      state.todos.map((todo) => {
-        if (todo.id === action.payload.id) {
-          return {
-            ...todo,
-            descr: action.payload.descr,
-          };
+      state.todos.forEach((todo) => {
+        if (todo.id === action.payload) {
+          todo.descr = action.payload.descr;
         }
-        return todo;
       });
     },
 

@@ -17,7 +17,16 @@ function TodoList(props) {
   };
 
   const updatedHandler = (id) => {
-    setIsupdate(id);
+    dispatch(updateTodos({id, descr: inputRef.current.value}));
+    setIsupdate(null)
+  };
+
+  const isUpdateHandler = (id) => {
+    if (isupdate === id) {
+      setIsupdate(null);
+    } else {
+      setIsupdate(id);
+    }
   };
 
   const removeHandler = (id) => {
@@ -31,15 +40,20 @@ function TodoList(props) {
           {props.list?.map((item, index) => (
             <li key={index} className="todo___card">
               {isupdate === item.id ? (
-                <input ref={inputRef} type="text" placeholder={item?.descr} />
+                <div className="popCard">
+                  <input ref={inputRef} type="text" placeholder={item?.descr} />
+                  <div onClick={(e) => updatedHandler(item.id)}>
+                    <Button name="update" color="#1e1e2c" />
+                  </div>
+                </div>
               ) : (
                 <h5>{item?.descr}</h5>
               )}
               <div className="todo___card--bottom">
                 <p>{item?.time}</p>
                 <ul className="todo___card--icon">
-                  <li onClick={(e) => updatedHandler(item.id)}>
-                    {!item.completed ? (
+                  <li onClick={(e) => isUpdateHandler(item.id)}>
+                    {!item.completed && !isupdate ? (
                       <Button name="MdCreate" color="#1e1e2c" />
                     ) : undefined}
                   </li>

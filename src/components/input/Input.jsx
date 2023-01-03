@@ -6,7 +6,6 @@ import { addTodo } from "../../features/todosSlice";
 
 function Input() {
   const inputRef = useRef();
-  // const inputSecondRef = useRef();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -17,7 +16,6 @@ function Input() {
       dispatch(
         addTodo({
           id: Math.random() * 1000,
-          // title: inputSecondRef.current.value,
           descr: inputRef.current.value,
           time: current_time,
           completed: false,
@@ -25,7 +23,6 @@ function Input() {
       );
     }
     inputRef.current.value = "";
-    // inputSecondRef.current.value = "";
   };
 
   return (
@@ -36,11 +33,6 @@ function Input() {
         placeholder="Create your todo"
         required
       />
-
-      {/* <form className="input___form">
-        <input type="text" ref={inputSecondRef} placeholder="Todo Title" />
-        <input type="text" ref={inputRef} placeholder="todo description" />
-      </form> */}
       <div onClick={handleSubmit}>
         <Button name="MdAdd" color="#1e1e2c" />
       </div>
