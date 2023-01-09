@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import "./home.css";
 import { Input, TodoList } from "../../components";
 import { useSelector } from "react-redux";
-import {
-  selectActiveTodos,
-  selectTodos,
-  selectCompletedTodos,
-} from "../../features/todosSlice";
+import { selectTodos } from "../../features/todosSlice";
 
 function Home() {
   const todos = useSelector(selectTodos);
-  const activeTodos = useSelector(selectActiveTodos);
-  const completedTodos = useSelector(selectCompletedTodos);
+  const activeTodos = todos.filter((todo) => !todo.completed);
+  const completedTodos = todos.filter((todo) => todo.completed);
   const [active_one, setActive_one] = useState(true);
   const [active_two, setActive_two] = useState(false);
   const [active_three, setActive_three] = useState(false);

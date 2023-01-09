@@ -17,8 +17,8 @@ function TodoList(props) {
   };
 
   const updatedHandler = (id) => {
-    dispatch(updateTodos({id, descr: inputRef.current.value}));
-    setIsupdate(null)
+    dispatch(updateTodos({ id, descr: inputRef.current.value }));
+    setIsupdate(null);
   };
 
   const isUpdateHandler = (id) => {

@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 const initialState = {
   todos: [],
   completedTodos: [],
@@ -9,27 +10,28 @@ export const todosSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
+      let key = action.payload.id;
+      localStorage.setItem(key, action.payload);
       state.todos.push(action.payload);
       state.activeTodos.push(action.payload);
     },
     completedTodo: (state, action) => {
       state.todos.forEach((todo) => {
+        console.log("activeID", todo.id);
         if (todo.id === action.payload) {
           todo.completed = !todo.completed;
         }
       });
-      const completedTodos = state.todos.filter((todo) => todo.completed);
-      state.completedTodos = completedTodos;
-      const activeTodos = state.todos.filter((todo) => !todo.completed);
-      state.activeTodos = activeTodos;
     },
-//Todo =================================
     updateTodos: (state, action) => {
-      state.todos.forEach((todo) => {
-        if (todo.id === action.payload) {
-          todo.descr = action.payload.descr;
-        }
-      });
+      const exstingUser = state.todos.find(
+        (todo) => todo.id === action.payload.id
+      );
+      console.log("exstingUser", current(exstingUser));
+      if (exstingUser) {
+        exstingUser.descr = action.payload.descr
+        ;
+      }
     },
 
     removeTodo: (state, action) => {
